@@ -1,5 +1,5 @@
 import unittest
-from anglosaxon.evaluation import evaluation_placeholder
+from shiftingbrowserfingerprints.evaluation import evaluation_placeholder
 
 class TestEvaluation(unittest.TestCase):
 
