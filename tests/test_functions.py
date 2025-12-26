@@ -1,5 +1,5 @@
 import unittest
-from anglosaxon.functions import add
+from shiftingbrowserfingerprints.functions import add
 
 class TestFunctions(unittest.TestCase):
 
