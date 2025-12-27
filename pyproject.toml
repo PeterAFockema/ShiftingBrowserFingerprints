@@ -4,4 +4,4 @@ build-backend = "setup_tools.build_meta"
 
 [project]
 name = "shifting_browser_fingerprints"
-version = "0.0.2"
+version = "0.0.3"
