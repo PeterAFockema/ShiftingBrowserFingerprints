@@ -47,7 +47,7 @@ class Scrapers(object):
 
     def chrome_driver_canvas_extension_implementation(self):
         file_being_run = os.path.dirname(os.path.abspath(__file__))
-        extension_location = str(file_being_run) + "/extensions/canvas.crx"
+        extension_location = str(file_being_run) + "/__assets__/extensions/canvas.crx"
         print("extension location: ", extension_location)
         chrome_options = OptionsChrome()
         chrome_options.add_extension(extension_location)
