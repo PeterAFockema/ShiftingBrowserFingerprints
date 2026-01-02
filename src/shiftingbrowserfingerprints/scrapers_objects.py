@@ -31,35 +31,24 @@ class Scrapers(object):
         # print("cwd: ", cwd)
         file_being_run = os.path.dirname(os.path.abspath(__file__))
         # print("file being run: ", file_being_run)
-        extension_location = str(file_being_run) + "/extensions/hello_world.crx"
+        extension_location = str(file_being_run) + "/__assets__/extensions/hello_world.crx"
         # print("extension location: ", extension_location)
         chrome_options = OptionsChrome()
         chrome_options.add_extension(extension_location)
 
         # Initialize the Chrome driver
         driver = webdriver.Chrome(options=chrome_options)
-        # Navigate to the URL
-        driver.get('https://google.com')
-        # Print the title page
-        print(driver.title)
-        # Here we close the browser when done
-        driver.quit()
+        return driver
 
     def chrome_driver_canvas_extension_implementation(self):
         file_being_run = os.path.dirname(os.path.abspath(__file__))
         extension_location = str(file_being_run) + "/__assets__/extensions/canvas.crx"
-        print("extension location: ", extension_location)
         chrome_options = OptionsChrome()
         chrome_options.add_extension(extension_location)
 
         # Initialize the Chrome driver
         driver = webdriver.Chrome(options=chrome_options)
-        # Navigate to the URL
-        driver.get('https://google.com')
-        # Print the title page
-        print(driver.title)
-        # Here we close the browser when done
-        driver.quit()
+        return driver
 
     def firefox_driver_implementation(self):
         #Initialise the Firefox driver
