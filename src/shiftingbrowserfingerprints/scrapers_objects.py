@@ -47,7 +47,7 @@ class Scrapers(object):
         chrome_options.add_extension(extension_location)
 
         # Initialize the Chrome driver
-        driver = webdriver.Chrome(chrome_options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options)
         return driver
 
     def firefox_driver_implementation(self):
