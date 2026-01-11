@@ -47,18 +47,13 @@ class Scrapers(object):
         chrome_options.add_extension(extension_location)
 
         # Initialize the Chrome driver
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(chrome_options=chrome_options)
         return driver
 
     def firefox_driver_implementation(self):
         #Initialise the Firefox driver
         driver = webdriver.Firefox()
-        #Navigate to the URL
-        driver.get('https://google.com')
-        #Print the title page
-        print(driver.title)
-        #Here we close the browser when done
-        driver.quit()
+        return driver
 
     def chrome_driver_implementation_passed_url(self, passed_url):
         # Initialize the Chrome driver
