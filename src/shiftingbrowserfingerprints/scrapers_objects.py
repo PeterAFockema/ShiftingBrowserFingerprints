@@ -26,7 +26,6 @@ class Scrapers(object):
         driver.quit()
     
     def chrome_driver_extension_implementation(self):
-
         # cwd = os.getcwd()
         # print("cwd: ", cwd)
         file_being_run = os.path.dirname(os.path.abspath(__file__))
@@ -53,6 +52,33 @@ class Scrapers(object):
     def firefox_driver_implementation(self):
         #Initialise the Firefox driver
         driver = webdriver.Firefox()
+        return driver
+
+    def firefox_driver_canvas_extension_implementation(self):
+        #Initialise the Firefox driver
+        driver = webdriver.Firefox()
+        return driver
+    
+    def firefox_driver_font_extension_implementation(self):
+        #Initialise the Firefox driver
+        options = OptionsFirefox()
+        driver = webdriver.Firefox(options=options)
+    
+        file_being_run = os.path.dirname(os.path.abspath(__file__))
+        extension_location = str(file_being_run) + "/__assets__/extensions/firefox_font.xpi"
+
+        driver.install_addon(extension_location)
+        return driver
+
+    def firefox_driver_webgl_extension_implementation(self):
+        #Initialise the Firefox driver
+        options = OptionsFirefox()
+        driver = webdriver.Firefox(options=options)
+    
+        file_being_run = os.path.dirname(os.path.abspath(__file__))
+        extension_location = str(file_being_run) + "/__assets__/extensions/firefox_webgl.xpi"
+
+        driver.install_addon(extension_location)
         return driver
 
     def chrome_driver_implementation_passed_url(self, passed_url):
