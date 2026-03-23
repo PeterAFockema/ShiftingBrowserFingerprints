@@ -47,9 +47,91 @@ def setup_firefox_with_webgl_extension():
     
     return driver
 
-#Example usage without extension
-print("About to declare driver...")
-driver = setup_firefox_without_extension()
+# Setup Firefox with Canvas extension
+def setup_firefox_with_canvas_and_font_extension():
+    options = Options()
+    # options.add_extension("path/to/extension.xpi")  # Add your extension
+    driver = webdriver.Firefox(options=options)
+    
+    file_being_run = os.path.dirname(os.path.abspath(__file__))
+    extension_location_1 = str(file_being_run) + "/__assets__/extensions/firefox_canvas2.xpi"
+    extension_location_2 = str(file_being_run) + "/__assets__/extensions/firefox_font.xpi"
+
+    driver.install_addon(extension_location_1)
+    driver.install_addon(extension_location_2)
+    
+    return driver
+
+# Setup Firefox with Canvas extension
+def setup_firefox_with_canvas_and_webgl_extension():
+    options = Options()
+    # options.add_extension("path/to/extension.xpi")  # Add your extension
+    driver = webdriver.Firefox(options=options)
+    
+    file_being_run = os.path.dirname(os.path.abspath(__file__))
+    extension_location_1 = str(file_being_run) + "/__assets__/extensions/firefox_canvas2.xpi"
+    extension_location_2 = str(file_being_run) + "/__assets__/extensions/firefox_webgl.xpi"
+
+    driver.install_addon(extension_location_1)
+    driver.install_addon(extension_location_2)
+    
+    return driver
+
+# Setup Firefox with Canvas extension
+def setup_firefox_with_font_and_webgl_extension():
+    options = Options()
+    # options.add_extension("path/to/extension.xpi")  # Add your extension
+    driver = webdriver.Firefox(options=options)
+    
+    file_being_run = os.path.dirname(os.path.abspath(__file__))
+    extension_location_1 = str(file_being_run) + "/__assets__/extensions/firefox_font.xpi"
+    extension_location_2 = str(file_being_run) + "/__assets__/extensions/firefox_webgl.xpi"
+
+    driver.install_addon(extension_location_1)
+    driver.install_addon(extension_location_2)
+    
+    return driver
+
+# #Example usage without extension
+# print("About to declare driver...")
+# driver = setup_firefox_without_extension()
+# print("About to get page...")
+# driver.get("http://127.0.0.1:8080")
+# time.sleep(10)
+# print("About to quit...")
+# driver.quit()
+
+# # Example usage
+# print("About to declare driver for Canvas extension...")
+# driver = setup_firefox_with_canvas_extension()
+# print("About to get page...")
+# driver.get("http://127.0.0.1:8080")
+# time.sleep(10)
+# print("About to quit...")
+# driver.quit()
+
+# # Example usage
+# print("About to declare driver for Font extension...")
+# driver = setup_firefox_with_font_extension()
+# print("About to get page...")
+# driver.get("http://127.0.0.1:8080")
+# time.sleep(10)
+# print("About to quit...")
+# driver.quit()
+
+# # Example usage
+# print("About to declare driver for WebGL extension...")
+# driver = setup_firefox_with_webgl_extension()
+# print("About to get page...")
+# driver.get("http://127.0.0.1:8080")
+# time.sleep(10)
+# print("About to quit...")
+# driver.quit()
+
+
+# Example usage
+print("About to declare driver for Canvas and Font extension...")
+driver = setup_firefox_with_canvas_and_font_extension()
 print("About to get page...")
 driver.get("http://127.0.0.1:8080")
 time.sleep(10)
@@ -57,26 +139,18 @@ print("About to quit...")
 driver.quit()
 
 # Example usage
-print("About to declare driver for Canvas extension...")
-driver = setup_firefox_with_canvas_extension()
+print("About to declare driver for Canvas and WebGL extension...")
+driver = setup_firefox_with_canvas_and_webgl_extension()
 print("About to get page...")
 driver.get("http://127.0.0.1:8080")
 time.sleep(10)
 print("About to quit...")
 driver.quit()
 
-# Example usage
-print("About to declare driver for Font extension...")
-driver = setup_firefox_with_font_extension()
-print("About to get page...")
-driver.get("http://127.0.0.1:8080")
-time.sleep(10)
-print("About to quit...")
-driver.quit()
 
 # Example usage
-print("About to declare driver for WebGL extension...")
-driver = setup_firefox_with_webgl_extension()
+print("About to declare driver for Font and WebGL extension...")
+driver = setup_firefox_with_font_and_webgl_extension()
 print("About to get page...")
 driver.get("http://127.0.0.1:8080")
 time.sleep(10)
