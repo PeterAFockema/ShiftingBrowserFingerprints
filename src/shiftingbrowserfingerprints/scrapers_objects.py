@@ -70,6 +70,27 @@ class Scrapers(object):
         driver.install_addon(extension_location)
         return driver
 
+    def firefox_driver_extension_implementation(self, extension_choice: str):
+        #Initialise the Firefox driver
+        driver = webdriver.Firefox()
+        #Check which extensions to install on the driver
+        extensions_to_check = ["font", "canvas", "webgl", "screen"]
+        extension_location = str(os.path.dirname(os.path.abspath(__file__)))
+        if any(ext == extension_choice for ext in extensions_to_check):
+            if extension_choice == "font":
+                extension_location+= "/__assets__/extensions/font_ff/node_modules/font_scrambler-1.0.zip"
+                driver.install_addon(extension_location)
+            if extension_choice == "canvas":
+                extension_location+= "/__assets__/extensions/canvas_ff/node_modules/canvas_scrambler-1.0.zip"
+                driver.install_addon(extension_location)
+            if extension_choice == "webgl":
+                extension_location+= "/__assets__/extensions/webgl_ff/node_modules/webgl_scrambler-1.0.zip"
+                driver.install_addon(extension_location)
+            if extension_choice == "screen":
+                extension_location+= "/__assets__/extensions/screen_ff/node_modules/screen_scrambler-1.0.zip"
+                driver.install_addon(extension_location)        
+        return driver
+    
     def firefox_driver_webgl_extension_implementation(self):
         #Initialise the Firefox driver
         options = OptionsFirefox()
