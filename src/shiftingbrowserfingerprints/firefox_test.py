@@ -13,6 +13,7 @@ def setup_firefox_without_extension():
 # Setup Firefox with Canvas extension
 def setup_firefox_with_canvas_extension():
     options = Options()
+    options.add_argument('-profile') #Ask Selenium to use a profile s.t. it copies it to a temporary location and uses this copy
     # options.add_extension("path/to/extension.xpi")  # Add your extension
     driver = webdriver.Firefox(options=options)
     
