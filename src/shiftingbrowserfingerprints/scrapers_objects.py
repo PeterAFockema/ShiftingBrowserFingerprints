@@ -56,7 +56,14 @@ class Scrapers(object):
 
     def firefox_driver_canvas_extension_implementation(self):
         #Initialise the Firefox driver
-        driver = webdriver.Firefox()
+        options = OptionsFirefox()
+        driver = webdriver.Firefox(options=options)
+    
+        file_being_run = os.path.dirname(os.path.abspath(__file__))
+        extension_location = str(file_being_run) + "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-2.0.xpi"
+
+        driver.install_addon(extension_location)
+
         return driver
     
     def firefox_driver_font_extension_implementation(self):
