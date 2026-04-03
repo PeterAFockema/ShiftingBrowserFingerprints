@@ -78,8 +78,43 @@ class Scrapers(object):
         return driver
         
     def firefox_driver_extension_implementation(self, extension_choice: str):
-        # Initialise the Firefox driver
-        driver = webdriver.Firefox()
+        # Initialise Firefox Options
+        options = OptionsFirefox()
+
+        # Set the specific preference
+        # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
+        options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
+
+        # NOTE: An Optional-> Disable the actual tracking protection feature as well
+        # (Can be paired with the above to ensure a locked-down, consistent state)
+        options.set_preference("privacy.trackingprotection.enabled", False)
+
+        # Disable 'Known Fingerprinters' protection
+        options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
+
+        # For Private Browsing mode specifically (if applicable)
+        options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
+
+        # Disable 'Suspected Fingerprinters' protection (General)
+        options.set_preference("privacy.fingerprintingProtection", False)
+
+        # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
+        # ETP 'Strict' mode often enables suspected fingerprinters by default
+        options.set_preference("privacy.trackingprotection.enabled", False)
+
+        # Disable 'Cryptominers' protection
+        options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
+
+        # Disable all cookies
+        options.set_preference("network.cookie.cookieBehavior", 2)
+
+        # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
+        # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
+        
+        # Launch the Firefox driver
+        # driver = webdriver.Firefox() # NOTE: Vanilla driver-> intend to split this out as a separate option at a later date
+        driver = webdriver.Firefox(options=options)
+        
         # Check which extensions to install on the driver
         extensions_to_check = ["font", "canvas", "webgl", "screen",
         "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
@@ -146,8 +181,43 @@ class Scrapers(object):
         return driver
   
     def firefox_driver_extension_implementation(self, extension_choices: list):
-        # Initialise the Firefox driver
-        driver = webdriver.Firefox()
+        # Initialise Firefox Options
+        options = OptionsFirefox()
+
+        # Set the specific preference
+        # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
+        options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
+
+        # NOTE: An Optional-> Disable the actual tracking protection feature as well
+        # (Can be paired with the above to ensure a locked-down, consistent state)
+        options.set_preference("privacy.trackingprotection.enabled", False)
+
+        # Disable 'Known Fingerprinters' protection
+        options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
+
+        # For Private Browsing mode specifically (if applicable)
+        options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
+
+        # Disable 'Suspected Fingerprinters' protection (General)
+        options.set_preference("privacy.fingerprintingProtection", False)
+
+        # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
+        # ETP 'Strict' mode often enables suspected fingerprinters by default
+        options.set_preference("privacy.trackingprotection.enabled", False)
+
+        # Disable 'Cryptominers' protection
+        options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
+
+        # Disable all cookies
+        options.set_preference("network.cookie.cookieBehavior", 2)
+
+        # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
+        # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
+        
+        # Launch the Firefox driver
+        # driver = webdriver.Firefox() # NOTE: Vanilla driver-> intend to split this out as a separate option at a later date
+        driver = webdriver.Firefox(options=options)
+
         # Check which extensions to install on the driver
         extensions_to_check = ["font", "canvas", "webgl", "screen",
         "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
