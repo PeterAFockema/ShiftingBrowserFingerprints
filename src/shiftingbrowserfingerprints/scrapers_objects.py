@@ -132,51 +132,51 @@ class Scrapers(object):
         if any(ext == extension_choice for ext in extensions_to_check):
             # Combos within an Add On
             if extension_choice == "font":
-                extension_location+= "/__assets__/extensions/font_ff/node_modules/font_scrambler_ff-2.0.xpi"
+                extension_location+= "/__assets__/extensions/font_ff/web-ext-artifacts/font_scrambler_ff-2.0.xpi"
                 driver.install_addon(extension_location)
             if extension_choice == "canvas":
-                extension_location+= "/__assets__/extensions/canvas_ff/node_modules/canvas_scrambler_ff-2.0.xpi"
+                extension_location+= "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-2.0.xpi"
                 driver.install_addon(extension_location)
             if extension_choice == "webgl":
-                extension_location+= "/__assets__/extensions/webgl_ff/node_modules/webgl_scrambler_ff-2.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-2.0.xpi"
                 driver.install_addon(extension_location)
             if extension_choice == "screen":
-                extension_location+= "/__assets__/extensions/screen_ff/node_modules/screen_scrambler_ff-2.0.xpi"
+                extension_location+= "/__assets__/extensions/screen_ff/web-ext-artifacts/screen_scrambler_ff-2.0.xpi"
                 driver.install_addon(extension_location)
             # Single calls within an Add On
             # The following are for HTMLElement.prototype.'__' HTML elements
             if (extension_choice == "font.offsetHeight") or (extension_choice == "prototype.offsetHeight") or (extension_choice == "offsetHeight"):
-                extension_location+= "/__assets__/extensions/font_offsetHeight_ff/node_modules/font_offsetheight_scrambler_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/font_offsetHeight_ff/web-ext-artifacts/font_offsetheight_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "font.offsetWidth") or (extension_choice == "prototype.offsetWidth") or (extension_choice == "offsetWidth"):
-                extension_location+= "/__assets__/extensions/font_offsetHeight_ff/node_modules/font_offsetwidth_scrambler_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/font_offsetHeight_ff/web-ext-artifacts/font_offsetwidth_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             # The following are for WebGL2RenderingContext.prototype.'__' elements
             if (extension_choice == "webgl.parameter") or (extension_choice == "prototype.parameter") or (extension_choice == "parameter"):
-                extension_location+= "/__assets__/extensions/webgl_parameter_ff/node_modules/webgl-parameter-ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_parameter_ff/web-ext-artifacts/webgl-parameter-ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "webgl.buffer") or (extension_choice == "prototype.buffer") or (extension_choice == "buffer"):
-                extension_location+= "/__assets__/extensions/webgl_buffer_ff/node_modules/webgl-buffer-ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_buffer_ff/web-ext-artifacts/webgl-buffer-ff-1.0.xpi"
                 driver.install_addon(extension_location)
             # The following are for CanvasRenderingContext2D.prototype.'__' elements
             if (extension_choice == "canvas.toBlob") or (extension_choice == "prototype.toBlob") or (extension_choice == "toBlob"):
-                extension_location+= "/__assets__/extensions/canvas_toBlob_ff/node_modules/canvas_toBlob_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/canvas_toBlob_ff/web-ext-artifacts/canvas_toBlob_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "canvas.toDataURL") or (extension_choice == "prototype.toDataURL") or (extension_choice == "toDataURL"):
-                extension_location+= "/__assets__/extensions/canvas_toDataURL_ff/node_modules/canvas_toDataURL_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/canvas_toDataURL_ff/web-ext-artifacts/canvas_toDataURL_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             # The following are for Screen.prototype.'__' elements
             if (extension_choice == "screen.availHeight") or (extension_choice == "prototype.availHeight") or (extension_choice == "availHeight"):
-                extension_location+= "/__assets__/extensions/screen_availHeight_ff/node_modules/screen_height_values_scrambler_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/screen_availHeight_ff/web-ext-artifacts/screen_height_values_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "screen.availWidth") or (extension_choice == "prototype.availWidth") or (extension_choice == "availWidth"):
-                extension_location+= "/__assets__/extensions/screen_availWidth_ff/node_modules/screen_width_values_scrambler_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/screen_availWidth_ff/web-ext-artifacts/screen_width_values_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "screen.colorDepth") or (extension_choice == "prototype.colorDepth") or (extension_choice == "colorDepth"):
-                extension_location+= "/__assets__/extensions/screen_colorDepth_ff/node_modules/colordepth_values_scramble_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/screen_colorDepth_ff/web-ext-artifacts/colordepth_values_scramble_ff-1.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "screen.devicePixelRatio") or (extension_choice == "prototype.devicePixelRatio") or (extension_choice == "devicePixelRatio"):
-                extension_location+= "/__assets__/extensions/screen_devicePixelRatio_ff/node_modules/devicepixelratio_scrambler_ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/screen_devicePixelRatio_ff/web-ext-artifacts/devicepixelratio_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
         return driver
   
@@ -236,51 +236,51 @@ class Scrapers(object):
             if any(ext == extension_choice for ext in extensions_to_check):
                 # Combos within an Add On
                 if extension_choice == "font":
-                    extension_location+= "/__assets__/extensions/font_ff/node_modules/font_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/font_ff/web-ext-artifacts/font_scrambler_ff-2.0.xpi"
                     driver.install_addon(extension_location)
                 if extension_choice == "canvas":
-                    extension_location+= "/__assets__/extensions/canvas_ff/node_modules/canvas_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-2.0.xpi"
                     driver.install_addon(extension_location)
                 if extension_choice == "webgl":
-                    extension_location+= "/__assets__/extensions/webgl_ff/node_modules/webgl_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-2.0.xpi"
                     driver.install_addon(extension_location)
                 if extension_choice == "screen":
-                    extension_location+= "/__assets__/extensions/screen_ff/node_modules/screen_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_ff/web-ext-artifacts/screen_scrambler_ff-2.0.xpi"
                     driver.install_addon(extension_location)
                 # Single calls within an Add On
                 # The following are for HTMLElement.prototype.'__' HTML elements
                 if (extension_choice == "font.offsetHeight") or (extension_choice == "prototype.offsetHeight") or (extension_choice == "offsetHeight"):
-                    extension_location+= "/__assets__/extensions/font_offsetHeight_ff/node_modules/font_offsetheight_scrambler_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/font_offsetHeight_ff/web-ext-artifacts/font_offsetheight_scrambler_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "font.offsetWidth") or (extension_choice == "prototype.offsetWidth") or (extension_choice == "offsetWidth"):
-                    extension_location+= "/__assets__/extensions/font_offsetHeight_ff/node_modules/font_offsetwidth_scrambler_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/font_offsetHeight_ff/web-ext-artifacts/font_offsetwidth_scrambler_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 # The following are for WebGL2RenderingContext.prototype.'__' elements
                 if (extension_choice == "webgl.parameter") or (extension_choice == "prototype.parameter") or (extension_choice == "parameter"):
-                    extension_location+= "/__assets__/extensions/webgl_parameter_ff/node_modules/webgl-parameter-ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/webgl_parameter_ff/web-ext-artifacts/webgl-parameter-ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "webgl.buffer") or (extension_choice == "prototype.buffer") or (extension_choice == "buffer"):
-                    extension_location+= "/__assets__/extensions/webgl_buffer_ff/node_modules/webgl-buffer-ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/webgl_buffer_ff/web-ext-artifacts/webgl-buffer-ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 # The following are for CanvasRenderingContext2D.prototype.'__' elements
                 if (extension_choice == "canvas.toBlob") or (extension_choice == "prototype.toBlob") or (extension_choice == "toBlob"):
-                    extension_location+= "/__assets__/extensions/canvas_toBlob_ff/node_modules/canvas_toBlob_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/canvas_toBlob_ff/web-ext-artifacts/canvas_toBlob_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "canvas.toDataURL") or (extension_choice == "prototype.toDataURL") or (extension_choice == "toDataURL"):
-                    extension_location+= "/__assets__/extensions/canvas_toDataURL_ff/node_modules/canvas_toDataURL_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/canvas_toDataURL_ff/web-ext-artifacts/canvas_toDataURL_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 # The following are for Screen.prototype.'__' elements
                 if (extension_choice == "screen.availHeight") or (extension_choice == "prototype.availHeight") or (extension_choice == "availHeight"):
-                    extension_location+= "/__assets__/extensions/screen_availHeight_ff/node_modules/screen_height_values_scrambler_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_availHeight_ff/web-ext-artifacts/screen_height_values_scrambler_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "screen.availWidth") or (extension_choice == "prototype.availWidth") or (extension_choice == "availWidth"):
-                    extension_location+= "/__assets__/extensions/screen_availWidth_ff/node_modules/screen_width_values_scrambler_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_availWidth_ff/web-ext-artifacts/screen_width_values_scrambler_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "screen.colorDepth") or (extension_choice == "prototype.colorDepth") or (extension_choice == "colorDepth"):
-                    extension_location+= "/__assets__/extensions/screen_colorDepth_ff/node_modules/colordepth_values_scramble_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_colorDepth_ff/web-ext-artifacts/colordepth_values_scramble_ff-1.0.xpi"
                     driver.install_addon(extension_location)
                 if (extension_choice == "screen.devicePixelRatio") or (extension_choice == "prototype.devicePixelRatio") or (extension_choice == "devicePixelRatio"):
-                    extension_location+= "/__assets__/extensions/screen_devicePixelRatio_ff/node_modules/devicepixelratio_scrambler_ff-1.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_devicePixelRatio_ff/web-ext-artifacts/devicepixelratio_scrambler_ff-1.0.xpi"
                     driver.install_addon(extension_location)
         return driver
 
