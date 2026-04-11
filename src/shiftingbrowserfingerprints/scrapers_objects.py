@@ -128,8 +128,9 @@ class Scrapers(object):
         "screen.availHeight", "prototype.availHeight", "availHeight",
         "screen.availWidth", "prototype.availWidth", "availWidth",
         "screen.colorDepth", "prototype.colorDepth", "colorDepth",
-        "screen.height", "height",
-        "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio"]
+        "screen.height", "height", "screen.width", "width",
+        "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio",
+        "timezone"]
 
         extension_location = str(os.path.dirname(os.path.abspath(__file__)))
         if any(ext == extension_choice for ext in extensions_to_check):
@@ -150,7 +151,10 @@ class Scrapers(object):
                 extension_location+= "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-3.0.xpi"
                 driver.install_addon(extension_location)
             if extension_choice == "webgl":
-                extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-2.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-4.0.xpi"
+                driver.install_addon(extension_location)
+            if (extension_choice == "webrtc") or (extension_choice == "webRTC"):
+                extension_location+= "/__assets__/extensions/webRTC_ff/web-ext-artifacts/webrtc_scrambler_ff-2.0.xpi"
                 driver.install_addon(extension_location)
             if extension_choice == "screen":
                 extension_location+= "/__assets__/extensions/screen_ff/web-ext-artifacts/screen_scrambler_ff-3.0.xpi"
@@ -168,10 +172,10 @@ class Scrapers(object):
                 driver.install_addon(extension_location)
             # The following are for WebGL2RenderingContext.prototype.'__' elements
             if (extension_choice == "webgl.parameter") or (extension_choice == "prototype.parameter") or (extension_choice == "parameter"):
-                extension_location+= "/__assets__/extensions/webgl_parameter_ff/web-ext-artifacts/webgl-parameter-ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_parameter_ff/web-ext-artifacts/webgl-parameter-ff-2.0.xpi"
                 driver.install_addon(extension_location)
             if (extension_choice == "webgl.buffer") or (extension_choice == "prototype.buffer") or (extension_choice == "buffer"):
-                extension_location+= "/__assets__/extensions/webgl_buffer_ff/web-ext-artifacts/webgl-buffer-ff-1.0.xpi"
+                extension_location+= "/__assets__/extensions/webgl_buffer_ff/web-ext-artifacts/webgl-buffer-ff-2.0.xpi"
                 driver.install_addon(extension_location)
             # The following are for CanvasRenderingContext2D.prototype.'__' elements
             if (extension_choice == "canvas.getImageData") or (extension_choice == "prototype.getImageData") or (extension_choice == "getImageData"):
@@ -197,6 +201,12 @@ class Scrapers(object):
                 extension_location+= "/__assets__/extensions/screen_devicePixelRatio_ff/web-ext-artifacts/devicepixelratio_scrambler_ff-1.0.xpi"
             if (extension_choice == "screen.height") or (extension_choice == "height"):
                 extension_location+= "/__assets__/extensions/screen_height_ff/web-ext-artifacts/screen_height_only_values_scrambler_ff-3.0.xpi"
+                driver.install_addon(extension_location)
+            if (extension_choice == "screen.width") or (extension_choice == "width"):
+                extension_location+= "/__assets__/extensions/screen_width_ff/web-ext-artifacts/screen_width_only_values_scrambler_ff-2.0.xpi"
+                driver.install_addon(extension_location)
+            if (extension_choice == "timezone"):
+                extension_location+= "/__assets__/extensions/timezone_ff/web-ext-artifacts/timezone_scrambler_ff-1.0.xpi"
                 driver.install_addon(extension_location)
         return driver
 
