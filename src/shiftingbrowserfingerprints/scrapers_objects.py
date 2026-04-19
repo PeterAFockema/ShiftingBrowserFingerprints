@@ -77,7 +77,7 @@ class Scrapers(object):
         driver.install_addon(extension_location)
         return driver
         
-    def firefox_driver_extension_implementation(self, extension_choice: str):
+    def firefox_driver_extension_string_implementation(self, extension_choice: str):
         # Initialise Firefox Options
         options = OptionsFirefox()
 
@@ -210,7 +210,7 @@ class Scrapers(object):
                 driver.install_addon(extension_location)
         return driver
 
-    def firefox_driver_extension_implementation(self, extension_choices: list):
+    def firefox_driver_extension_list_implementation(self, extension_choices: list):
         # Initialise Firefox Options
         options = OptionsFirefox()
 
@@ -265,22 +265,33 @@ class Scrapers(object):
         for extension_choice in extension_choices:
             if any(ext == extension_choice for ext in extensions_to_check):
                 # Combos within an Add On
+                if extension_choice == "audio":
+                    extension_location+= "/__assets__/extensions/audio_ff/web-ext-artifacts/audio_scrambler_ff-1.0.xpi"
+                    driver.install_addon(extension_location)
+                if extension_choice == "battery":
+                    extension_location+= "/__assets__/extensions/battery_ff/web-ext-artifacts/battery_scrambler_ff-1.0.xpi"
+                    driver.install_addon(extension_location)
+                if extension_choice == "clientRects":
+                    extension_location+= "/__assets__/extensions/clientRects_ff/web-ext-artifacts/clientRects_scrambler_ff-2.0.xpi"
+                    driver.install_addon(extension_location)
                 if extension_choice == "font":
-                    extension_location+= "/__assets__/extensions/font_ff/web-ext-artifacts/font_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/font_ff/web-ext-artifacts/font_scrambler_ff-3.0.xpi"
                     driver.install_addon(extension_location)
-                    extension_location = str(os.path.dirname(os.path.abspath(__file__)))
                 if extension_choice == "canvas":
-                    extension_location+= "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/canvas_ff/web-ext-artifacts/canvas_scrambler_ff-3.0.xpi"
                     driver.install_addon(extension_location)
-                    extension_location = str(os.path.dirname(os.path.abspath(__file__)))
                 if extension_choice == "webgl":
-                    extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-4.0.xpi"
                     driver.install_addon(extension_location)
-                    extension_location = str(os.path.dirname(os.path.abspath(__file__)))
+                if (extension_choice == "webrtc") or (extension_choice == "webRTC"):
+                    extension_location+= "/__assets__/extensions/webRTC_ff/web-ext-artifacts/webrtc_scrambler_ff-2.0.xpi"
+                    driver.install_addon(extension_location)
                 if extension_choice == "screen":
-                    extension_location+= "/__assets__/extensions/screen_ff/web-ext-artifacts/screen_scrambler_ff-2.0.xpi"
+                    extension_location+= "/__assets__/extensions/screen_ff/web-ext-artifacts/screen_scrambler_ff-3.0.xpi"
                     driver.install_addon(extension_location)
-                    extension_location = str(os.path.dirname(os.path.abspath(__file__)))
+                if extension_choice == "navigator":
+                    extension_location+= "/__assets__/extensions/navigator_ff/web-ext-artifacts/navigator_scrambler_ff-1.0.xpi"
+                    driver.install_addon(extension_location)
                 # Single calls within an Add On
                 # The following are for HTMLElement.prototype.'__' HTML elements
                 if (extension_choice == "font.offsetHeight") or (extension_choice == "prototype.offsetHeight") or (extension_choice == "offsetHeight"):
