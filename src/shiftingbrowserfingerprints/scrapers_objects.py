@@ -116,7 +116,7 @@ class Scrapers(object):
         driver = webdriver.Firefox(options=options)
         
         # Check which extensions to install on the driver
-        extensions_to_check = ["font", "canvas", "webgl", "screen",
+        extensions_to_check = ["font", "canvas", "webgl", "webrtc", "webRTC", "screen",
                                "audio", "battery", "clientRects", "navigator",
         "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
         "font.offsetWidth", "prototype.offsetWidth", "offsetWidth",
@@ -249,17 +249,18 @@ class Scrapers(object):
         driver = webdriver.Firefox(options=options)
 
         # Check which extensions to install on the driver
-        extensions_to_check = ["font", "canvas", "webgl", "screen",
-        "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
-        "font.offsetWidth", "prototype.offsetWidth", "offsetWidth",
-        "webgl.parameter", "prototype.parameter", "parameter",
-        "webgl.buffer", "prototype.buffer", "buffer",
-        "canvas.toBlob", "prototype.toBlob", "toBlob",
-        "canvas.toDataURL", "prototype.toDataURL", "toDataURL",
-        "screen.availHeight", "prototype.availHeight", "availHeight",
-        "screen.availWidth", "prototype.availWidth", "availWidth",
-        "screen.colorDepth", "prototype.colorDepth", "colorDepth",
-        "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio"]
+        extensions_to_check = ["audio", "battery", "canvas", "clientRects", 
+                               "navigator", "screen", "timezone", "webgl", "webrtc", "webRTC",
+                               "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
+                                "font.offsetWidth", "prototype.offsetWidth", "offsetWidth",
+                                "webgl.parameter", "prototype.parameter", "parameter",
+                                "webgl.buffer", "prototype.buffer", "buffer",
+                                "canvas.toBlob", "prototype.toBlob", "toBlob",
+                                "canvas.toDataURL", "prototype.toDataURL", "toDataURL",
+                                "screen.availHeight", "prototype.availHeight", "availHeight",
+                                "screen.availWidth", "prototype.availWidth", "availWidth",
+                                "screen.colorDepth", "prototype.colorDepth", "colorDepth",
+                                "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio"]
 
         extension_location = str(os.path.dirname(os.path.abspath(__file__)))
         for extension_choice in extension_choices:
@@ -289,7 +290,7 @@ class Scrapers(object):
                     extension_location+= "/__assets__/extensions/webgl_ff/web-ext-artifacts/webgl_scrambler_ff-4.0.xpi"
                     driver.install_addon(extension_location)
                     extension_location = str(os.path.dirname(os.path.abspath(__file__)))
-                if (extension_choice == "webrtc") or (extension_choice == "webRTC"):
+                if extension_choice.lower() == "webrtc":
                     extension_location+= "/__assets__/extensions/webRTC_ff/web-ext-artifacts/webrtc_scrambler_ff-2.0.xpi"
                     driver.install_addon(extension_location)
                     extension_location = str(os.path.dirname(os.path.abspath(__file__)))
