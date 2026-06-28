@@ -6,7 +6,7 @@ def build_extension(base_dir, ext_name):
     source_dir = os.path.join(base_dir, "__assets__", "extensions", ext_name)
     output_dir = os.path.join(source_dir, "web-ext-artifacts")
     
-    # Normalize paths for web-ext command line
+    # Normalise paths for web-ext command line
     clean_source_dir = source_dir.replace("\\", "/")
     
     print(f"\nBuilding extension: {ext_name}")
