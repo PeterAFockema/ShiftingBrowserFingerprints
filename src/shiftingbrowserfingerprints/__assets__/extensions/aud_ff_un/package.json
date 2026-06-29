@@ -1,0 +1,16 @@
+{
+  "name": "Audio Scrambler Unsigned",
+  "version": "1.0.0",
+  "description": "The audio element is used in browser fingerprinting, this is a local addon attempts to scramble the value.",
+  "scripts": {
+    "start": "web-ext run",
+    "build": "web-ext build --overwrite-dest && renamer --find zip --replace xpi \"web-ext-artifacts/*.zip\""
+  },
+  "devDependencies": {
+    "renamer": "^5.0.0",
+    "web-ext": "^8.0.0"
+  },
+  "dependencies": {
+    "npm": "^11.11.0"
+  }
+}
