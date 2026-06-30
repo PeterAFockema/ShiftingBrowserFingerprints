@@ -16,7 +16,7 @@ class Scrapers(object):
         print("The Scrapers class initialised...")
 
     def chrome_driver_implementation(self):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome()
         # Navigate to the URL
         driver.get('https://google.com')
@@ -35,7 +35,7 @@ class Scrapers(object):
         chrome_options = OptionsChrome()
         chrome_options.add_extension(extension_location)
 
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome(options=chrome_options)
         return driver
 
@@ -45,7 +45,7 @@ class Scrapers(object):
         chrome_options = OptionsChrome()
         chrome_options.add_extension(extension_location)
 
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome(options=chrome_options)
         return driver
 
@@ -390,7 +390,7 @@ class Scrapers(object):
         return driver
 
     def chrome_driver_implementation_passed_url(self, passed_url):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome()
         # Navigate to the URL
         driver.get(passed_url)
@@ -400,7 +400,7 @@ class Scrapers(object):
         driver.quit()
 
     def chrome_driver_implementation_passed_url_mobile(self, passed_url):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome()
         driver.set_window_size(375, 667) #, 375) #Typical screen size for a mobile
         driver.set_window_position(200, 200) # Move the window to position x/y
@@ -414,7 +414,7 @@ class Scrapers(object):
         driver.quit()
     
     def chrome_driver_implementation_passed_url_tablet(self, passed_url):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome()
         driver.set_window_size(1024, 768) #Typical screen size for a tablet
         # Navigate to the URL
@@ -426,7 +426,7 @@ class Scrapers(object):
         driver.quit()
     
     def chrome_driver_implementation_passed_url_desktop(self, passed_url):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome()
         driver.set_window_size(1080, 1920) #Typical screen size for a desktop
         # Navigate to the URL
@@ -447,7 +447,7 @@ class Scrapers(object):
         driver.quit()
     
     def firefox_driver_implementation_passed_url_mobile(self, passed_url):
-        # Initialize the Firefox driver
+        # Initialise the Firefox driver
         driver = webdriver.Firefox()
         driver.set_window_size(667, 375) #Typical screen size for a mobile
         # Navigate to the URL
@@ -458,7 +458,7 @@ class Scrapers(object):
         driver.quit()
     
     def firefox_driver_implementation_passed_url_tablet(self, passed_url):
-        # Initialize the Firefox driver
+        # Initialise the Firefox driver
         driver = webdriver.Firefox()
         driver.set_window_size(1024, 768) #Typical screen size for a tablet
         # Navigate to the URL
@@ -469,7 +469,7 @@ class Scrapers(object):
         driver.quit()
     
     def firefox_driver_implementation_passed_url_desktop(self, passed_url):
-        # Initialize the Firefox driver
+        # Initialise the Firefox driver
         driver = webdriver.Firefox()
         driver.set_window_size(1080, 1920) #Typical screen size for a desktop
         # Navigate to the URL
@@ -486,7 +486,7 @@ class Scrapers(object):
         return options   
 
     def chrome_driver_implementation_passed_url_and_options(self, passed_url, options):
-        # Initialize the Chrome driver
+        # Initialise the Chrome driver
         driver = webdriver.Chrome(options=options)
         # Navigate to the URL
         driver.get(passed_url)

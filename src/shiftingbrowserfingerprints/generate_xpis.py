@@ -37,13 +37,13 @@ def build_all_unsigned_xpi_extensions():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # List of your extension folder names
-    extensions = ["audio_ff_unsigned", "battery_ff_unsigned", "canvas_ff_unsigned", "canvas_getImageData_ff_unsigned",
-                    "canvas_toBlob_ff_unsigned", "canvas_toDataURL_ff_unsigned", "clientRects_ff_unsigned", "font_ff_unsigned",
-                    "font_offsetHeight_ff_unsigned", "font_offsetWidth_ff_unsigned", "navigator_ff_unsigned",
-                    "screen_availHeight_ff_unsigned", "screen_availWidth_ff_unsigned", "screen_colorDepth_ff_unsigned", 
-                    "screen_devicePixelRatio_ff_unsigned", "screen_ff_unsigned", "screen_height_ff_unsigned", "screen_width_ff_unsigned",
-                    "timezone_ff_unsigned", "webgl_buffer_ff_unsigned", "webgl_ff_unsigned", "webgl_parameter_ff_unsigned",
-                    "webRTC_ff_unsigned"]
+    extensions = ["aud_ff", "batt_ff", "canv_ff", "canv_getImaDat_ff",
+                    "canv_toBl_ff", "canv_toDatURL_ff", "clientRects_ff", "font_ff",
+                    "font_offHei_ff", "font_offWid_ff", "nav_ff",
+                    "scre_avaHei_ff", "scre_avaWid_ff", "scre_colDep_ff", 
+                    "scre_devPixRat_ff", "scre_ff", "scre_hei_ff", "scre_wid_ff",
+                    "timez_ff", "webgl_buf_ff", "webgl_ff", "webgl_param_ff",
+                    "webRTC_ff"]
     
     # Run the builder for all extensions in the list
     for ext in extensions:
