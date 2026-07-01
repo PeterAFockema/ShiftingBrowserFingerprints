@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+	"name": "Font OffsetHeight Scrambler",
+	"version": "2.0",
+
+	"description": "For browser fingerprinting, this attempts to scramble the offsetHeight value.",
+
+	"icons": {
+		"48": "icons/border-48.png"
+	},
+
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+  ],
+  
+	"background": {
+        "scripts": [
+            "background_for_fonts.js"
+        ],
+        "persistent": true
+    },
+
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"all_frames": true,
+     		"run_at": "document_start",
+			"js": ["scramble_offset_height_values.js"]
+		}
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "a_font_offset_height_scrambler@scrambled.com",
+			"data_collection_permissions": {
+      			"required": ["none"],
+      			"optional": []
+    		}
+		}
+	}
+}
