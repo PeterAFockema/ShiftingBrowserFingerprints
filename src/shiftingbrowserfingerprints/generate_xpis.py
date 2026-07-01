@@ -37,7 +37,7 @@ def build_all_unsigned_xpi_extensions():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # List of your extension folder names
-    extensions = ["aud_ff", "batt_ff", "canv_ff", "canv_getImaDat_ff",
+    extensions = ["aud_ff", "batt_ff", "canv_ff", "canv_getImDat_ff",
                     "canv_toBl_ff", "canv_toDatURL_ff", "clientRects_ff", "font_ff",
                     "font_offHei_ff", "font_offWid_ff", "nav_ff",
                     "scre_avaHei_ff", "scre_avaWid_ff", "scre_colDep_ff", 
