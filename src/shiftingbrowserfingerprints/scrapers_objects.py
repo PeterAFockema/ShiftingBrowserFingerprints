@@ -81,36 +81,45 @@ class Scrapers(object):
         # Initialise Firefox Options
         options = OptionsFirefox()
 
-        # Set the specific preference
-        # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
-        options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
+        # # Set the specific preference
+        # # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
+        # options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
 
-        # NOTE: An Optional-> Disable the actual tracking protection feature as well
-        # (Can be paired with the above to ensure a locked-down, consistent state)
-        options.set_preference("privacy.trackingprotection.enabled", False)
+        # # NOTE: An Optional-> Disable the actual tracking protection feature as well
+        # # (Can be paired with the above to ensure a locked-down, consistent state)
+        # options.set_preference("privacy.trackingprotection.enabled", False)
 
-        # Disable 'Known Fingerprinters' protection
-        options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
+        # # Disable 'Known Fingerprinters' protection
+        # options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
 
-        # For Private Browsing mode specifically (if applicable)
-        options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
+        # # For Private Browsing mode specifically (if applicable)
+        # options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
 
-        # Disable 'Suspected Fingerprinters' protection (General)
-        options.set_preference("privacy.fingerprintingProtection", False)
+        # # Disable 'Suspected Fingerprinters' protection (General)
+        # options.set_preference("privacy.fingerprintingProtection", False)
 
-        # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
-        # ETP 'Strict' mode often enables suspected fingerprinters by default
-        options.set_preference("privacy.trackingprotection.enabled", False)
+        # # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
+        # # ETP 'Strict' mode often enables suspected fingerprinters by default
+        # options.set_preference("privacy.trackingprotection.enabled", False)
 
-        # Disable 'Cryptominers' protection
-        options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
+        # # Disable 'Cryptominers' protection
+        # options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
 
-        # Disable all cookies
-        options.set_preference("network.cookie.cookieBehavior", 2)
+        # # Disable all cookies
+        # options.set_preference("network.cookie.cookieBehavior", 2)
 
-        # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
-        # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
+        # # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
+        # # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
         
+        # Bypass standard domain blocks
+        options.set_preference("extensions.webextensions.restrictedDomains", "")
+
+        # Allow unsigned/temporary extensions to run in secure contexts
+        options.set_preference("extensions.experiments.enabled", True)
+        options.set_preference("xpinstall.signatures.required", False)
+
+        # Bypass insecure certificate warnings
+        options.accept_insecure_certs = True
         # Launch the Firefox driver
         # driver = webdriver.Firefox() # NOTE: Vanilla driver-> intend to split this out as a separate option at a later date
         driver = webdriver.Firefox(options=options)
@@ -211,52 +220,63 @@ class Scrapers(object):
         # Initialise Firefox Options
         options = OptionsFirefox()
 
-        # Set the specific preference
-        # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
-        options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
+        # # Set the specific preference
+        # # Setting this to True disables the "Manage Exceptions" button in the Privacy & Security menu
+        # options.set_preference("pref.privacy.disable_button.tracking_protection_exceptions", True)
 
-        # NOTE: An Optional-> Disable the actual tracking protection feature as well
-        # (Can be paired with the above to ensure a locked-down, consistent state)
-        options.set_preference("privacy.trackingprotection.enabled", False)
+        # # NOTE: An Optional-> Disable the actual tracking protection feature as well
+        # # (Can be paired with the above to ensure a locked-down, consistent state)
+        # options.set_preference("privacy.trackingprotection.enabled", False)
 
-        # Disable 'Known Fingerprinters' protection
-        options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
+        # # Disable 'Known Fingerprinters' protection
+        # options.set_preference("privacy.trackingprotection.fingerprinting.enabled", False)
 
-        # For Private Browsing mode specifically (if applicable)
-        options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
+        # # For Private Browsing mode specifically (if applicable)
+        # options.set_preference("privacy.trackingprotection.pbmode.enabled", False)
 
-        # Disable 'Suspected Fingerprinters' protection (General)
-        options.set_preference("privacy.fingerprintingProtection", False)
+        # # Disable 'Suspected Fingerprinters' protection (General)
+        # options.set_preference("privacy.fingerprintingProtection", False)
 
-        # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
-        # ETP 'Strict' mode often enables suspected fingerprinters by default
-        options.set_preference("privacy.trackingprotection.enabled", False)
+        # # Ensure the global Enhanced Tracking Protection (ETP) isn't overriding this
+        # # ETP 'Strict' mode often enables suspected fingerprinters by default
+        # options.set_preference("privacy.trackingprotection.enabled", False)
 
-        # Disable 'Cryptominers' protection
-        options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
+        # # Disable 'Cryptominers' protection
+        # options.set_preference("privacy.trackingprotection.cryptomining.enabled", False)
 
-        # Disable all cookies
-        options.set_preference("network.cookie.cookieBehavior", 2)
+        # # Disable all cookies
+        # options.set_preference("network.cookie.cookieBehavior", 2)
 
-        # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
-        # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
+        # # NOTE: An Optional-> Ensure they are also disabled in Private Browsing mode
+        # # options.set_preference("network.cookie.cookieBehavior.pbmode", 2)
+
+        # Bypass standard domain blocks
+        options.set_preference("extensions.webextensions.restrictedDomains", "")
+
+        # Allow unsigned/temporary extensions to run in secure contexts
+        options.set_preference("extensions.experiments.enabled", True)
+        options.set_preference("xpinstall.signatures.required", False)
+
+        # Bypass insecure certificate warnings
+        options.accept_insecure_certs = True
         
         # Launch the Firefox driver
         # driver = webdriver.Firefox() # NOTE: Vanilla driver-> intend to split this out as a separate option at a later date
         driver = webdriver.Firefox(options=options)
 
         # Check which extensions to install on the driver
-        extensions_to_check = ["font", "canvas", "webgl", "screen",
-        "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
-        "font.offsetWidth", "prototype.offsetWidth", "offsetWidth",
-        "webgl.parameter", "prototype.parameter", "parameter",
-        "webgl.buffer", "prototype.buffer", "buffer",
-        "canvas.toBlob", "prototype.toBlob", "toBlob",
-        "canvas.toDataURL", "prototype.toDataURL", "toDataURL",
-        "screen.availHeight", "prototype.availHeight", "availHeight",
-        "screen.availWidth", "prototype.availWidth", "availWidth",
-        "screen.colorDepth", "prototype.colorDepth", "colorDepth",
-        "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio"]
+        extensions_to_check = ["audio", "battery", "font", "canvas", "clientRects", "navigator", "screen", "webgl",
+                               "webGL", "webrtc", "webRTC", "timezone",
+                               "font.offsetHeight", "prototype.offsetHeight", "offsetHeight",
+                               "font.offsetWidth", "prototype.offsetWidth", "offsetWidth",
+                               "webgl.parameter", "prototype.parameter", "parameter",
+                               "webgl.buffer", "prototype.buffer", "buffer",
+                               "canvas.toBlob", "prototype.toBlob", "toBlob",
+                               "canvas.toDataURL", "prototype.toDataURL", "toDataURL",
+                               "screen.availHeight", "prototype.availHeight", "availHeight",
+                               "screen.availWidth", "prototype.availWidth", "availWidth",
+                               "screen.colorDepth", "prototype.colorDepth", "colorDepth",
+                               "screen.devicePixelRatio", "prototype.devicePixelRatio", "devicePixelRatio"]
 
         extension_location = str(os.path.dirname(os.path.abspath(__file__)))
         for extension_choice in extension_choices:
