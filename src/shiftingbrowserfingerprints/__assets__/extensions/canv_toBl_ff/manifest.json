@@ -9,6 +9,12 @@
 		"48": "icons/border-48.png"
 	},
 
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+  ],
+  
 	"background": {
         "scripts": [
             "background_for_canvas.js"
