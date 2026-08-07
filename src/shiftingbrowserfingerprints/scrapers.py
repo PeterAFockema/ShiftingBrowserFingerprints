@@ -1,4 +1,4 @@
-from shiftingbrowserfingerprints.scrapers_objects import Scrapers
+from shiftingbrowserfingerprints.firefox_scrapers import FirefoxScrapers
 
-def return_Scrapers_object(self):
-    return Scrapers(self)
+def return_Firefox_scrapers(self):
+    return FirefoxScrapers(self)
