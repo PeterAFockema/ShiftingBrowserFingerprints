@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+	"name": "toBlob Scrambler",
+	"version": "2.0",
+
+	"description": "The toBlob element is used in browser fingerprinting, this attempts to scramble the value.",
+
+	"icons": {
+		"48": "icons/border-48.png"
+	},
+
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+  ],
+  
+	"background": {
+        "scripts": [
+            "background_for_canvas.js"
+        ],
+        "persistent": true
+    },
+	
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"all_frames": true,
+     		"run_at": "document_start",
+			"js": ["scramble_to_blob_element.js"]
+		}
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "a_to_blob_scrambler@scrambled.com",
+			"data_collection_permissions": {
+      			"required": ["none"],
+      			"optional": []
+    		}
+		}
+	}
+}

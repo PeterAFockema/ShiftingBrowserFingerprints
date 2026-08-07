@@ -1,0 +1,43 @@
+{
+	"manifest_version": 2,
+	"name": "WebGL Scrambler",
+	"version": "3.0",
+
+	"description": "For WebGL browser fingerprinting, this attempts to scramble the value.",
+
+	"icons": {
+		"48": "icons/border-48.png"
+	},
+
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+  ],
+  
+	"background": {
+        "scripts": [
+            "background_for_webgl.js"
+        ],
+        "persistent": true
+    },
+
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"all_frames": true,
+     		"run_at": "document_start",
+			"js": ["scramble_webgl.js"]
+		}
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "a_webgl_scrambler@scrambled.com",
+			"data_collection_permissions": {
+      			"required": ["none"],
+      			"optional": []
+    		}
+		}
+	}
+}

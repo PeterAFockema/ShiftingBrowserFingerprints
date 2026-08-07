@@ -1,0 +1,41 @@
+{
+	"manifest_version": 2,
+	"name": "Font Scrambler",
+	"version": "3.0",
+
+	"description": "For Font browser fingerprinting, this attempts to scramble the value.",
+
+	"icons": {
+		"48": "icons/border-48.png"
+	},
+	"permissions": [
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking"
+  ],
+	"background": {
+        "scripts": [
+            "background_for_fonts.js"
+        ],
+        "persistent": true
+    },
+
+	"content_scripts": [
+		{
+			"matches": ["*://*/*"],
+			"all_frames": true,
+     		"run_at": "document_start",
+			"js": ["scramble_font_element.js"]
+		}
+	],
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "a_font_scrambler@scrambled.com",
+			"data_collection_permissions": {
+      			"required": ["none"],
+      			"optional": []
+    		}
+		}
+	}
+}
