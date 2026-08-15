@@ -20,7 +20,7 @@ Various browser fingerprinting obfuscation techniques that can be called, with a
 By following this method of stacking techniques, we can increase our coverage against browser 
 fingerprinting techniques.
 
-![alt text](./docs/images/fingerprint_obfuscation_concept_explanation.png)
+![alt text](./paper/images/fingerprint_obfuscation_concept_explanation.png)
 
 ## Example Usage
 First install the package:
