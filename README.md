@@ -20,7 +20,7 @@ Various browser fingerprinting obfuscation techniques that can be called, with a
 By following this method of stacking techniques, we can increase our coverage against browser 
 fingerprinting techniques.
 
-![alt text](./docs/images/fingerprint_obfuscation_concept_explanation.png)
+![alt text](./paper/images/fingerprint_obfuscation_concept_explanation.png)
 
 ## Example Usage
 First install the package:
@@ -49,3 +49,18 @@ url = "<INSERT URL ADDRESS HERE>"
 
 driver.get(url)
 ```
+
+## Demonstration of Usage
+A demonstration of this repository's usage can be observed at:
+```
+https://github.com/PeterAFockema/BrowserFingerprintUtilisation
+```
+At BrowserFingerprintUtilisation the method of testing is using the BDD framework, behave [^1],
+to test combinations of the browser fingerprinting obfuscation techniques against a test website
+that has been developed, and is run locally, that calculates the browser fingerprints of the
+visiting user using the open-source version of FingerprintJS [^2][^3].
+
+## References
+[^1]: Behave. (2026). *behave 1.4.0.dev0 documentation*, [Source Link](https://behave.readthedocs.io/en/latest/)   
+[^2]: Fingerprint. (2026). *Identify Every Visitor*, [Source Link](https://fingerprint.com/try/identify-now)   
+[^3]: FingerprintJS. (2026). *fingerprintjs*, [Source Link](https://github.com/fingerprintjs/fingerprintjs)   
