@@ -267,5 +267,5 @@ of this manuscript, or the preparation of supporting materials.
 
 # Acknowledgements
 
-I wish to express my gratitude to Infoserv Systems for their ongoing encouragement.
+I wish to express my gratitude to Infoserv Systems for their ongoing encouragement.   
 I would also like to acknowledge the previous work in this domain by Fingerprint Defender [@digitalfracture:2026], which I used as a basis for much of my own. 
