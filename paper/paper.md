@@ -1,5 +1,5 @@
 ---
-title: 'FingerprintObfuscation: A Python Package for Browser Fingerprint Obfuscation'
+title: 'ShiftingBrowserFingerprints: A Python Package for Browser Fingerprint Obfuscation'
 tags:
   - Python
   - fingerprints
