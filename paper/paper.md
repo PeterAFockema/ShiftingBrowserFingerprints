@@ -16,7 +16,7 @@ affiliations:
    index: 1
  - name: BCS (British Computer Society), United Kingdom
    index: 2
-date: 3 July 2026
+date: 15 August 2026
 bibliography: paper.bib
 ---
 
@@ -146,7 +146,7 @@ dynamically calls to install on the Firefox browser driver. The extensions are
 unsigned by design for ease of creation by the end user and as a double lock so 
 they will not persist on the browser after the end of a browser session.
 
-![A Visual Representation of how the FingerprintObfuscation Library Should be Deployed Layering Multiple Techniques for Obfuscation. \label{fig:fingerprint_obfuscation_concept_explanation}](fingerprint_obfuscation_concept_explanation.png)
+![A Visual Representation of how the FingerprintObfuscation Library Should be Deployed Layering Multiple Techniques for Obfuscation. \label{fig:fingerprint_obfuscation_concept_explanation}](images/fingerprint_obfuscation_concept_explanation.png)
 
 `FingerprintObfuscation` should be called by a program implemented using Python for 
 scraping a set website and is designed to not impact the purpose of the underlying 
