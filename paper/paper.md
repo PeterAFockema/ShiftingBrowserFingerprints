@@ -146,7 +146,9 @@ dynamically calls to install on the Firefox browser driver. The extensions are
 unsigned by design for ease of creation by the end user and as a double lock so 
 they will not persist on the browser after the end of a browser session.
 
-![A Visual Representation of how the FingerprintObfuscation Library Should be Deployed Layering Multiple Techniques for Obfuscation. \label{fig:fingerprint_obfuscation_concept_explanation}](images/fingerprint_obfuscation_concept_explanation.png)
+![A visual representation of how the FingerprintObfuscation library should be deployed layering multiple techniques for obfuscation. \label{fig:fingerprint_obfuscation_concept_explanation}](images/fingerprint_obfuscation_concept_explanation.png)   
+
+*Figure 1. A visual representation of how the FingerprintObfuscation library should be deployed layering multiple techniques for obfuscation.*   
 
 `FingerprintObfuscation` should be called by a program implemented using Python for 
 scraping a set website and is designed to not impact the purpose of the underlying 
@@ -179,18 +181,24 @@ We have run the software using the defined testing framework at
 [browser_fingerprinting_test_framework:2026]
 
 If we consider the following representation of the results:  
+
 <img src="images/colour_to_success.png" alt="isolated" width="500"/>  
+
+*Figure 2. A colour key for the representation of the results from the runs using the testing framework available at https://github.com/PeterAFockema/BrowserFingerprintUtilisation*   
+
 Where grey represents the initial fingerprint for the run (which a remained consistent value 
 throughout all three runs), red represents a run with no variation away from the original 
-fingerprint, and green represents a successful variation away the original fingerprint, we have 
-the following:  
-![The Results Relating to Fingerprint Variation Observed for Multiple Fingerprinting Obfuscation Techniques. Run 1. \label{fig:fingerprint_obfuscation_results_1}](images/fingerprint_results_run_1.png)
-![The Results Relating to Fingerprint Variation Observed for Multiple Fingerprinting Obfuscation Techniques. Run 2.\label{fig:fingerprint_obfuscation_results_1}](images/fingerprint_results_run_2.png)
-![The Results Relating to Fingerprint Variation Observed for Multiple Fingerprinting Obfuscation Techniques Run 3.\label{fig:fingerprint_obfuscation_results_1}](images/fingerprint_results_run_3.png)
+fingerprint, and green represents a successful variation away the original fingerprint.
 
-Notable behaviour can be observed in relation to the canvas fingerprinting interference results.
-We can observe canvas interference results in the following table.   
-![The Standard Variation Observed for Canvas Fingerprinting Obfuscation.\label{fig:fingerprint_canvas_obfuscation_results}](images/fingerprint_results_for_canvas_over_runs_1_through_3.png)  
+The full set of three runs can be observed in the Appendix section.
+
+Notable behaviour was observed in relation to the canvas fingerprinting interference results.
+We can observe the canvas interference results in the following table.   
+
+![The standard variation observed for Canvas fingerprinting obfuscation.\label{fig:fingerprint_canvas_obfuscation_results}](images/fingerprint_results_for_canvas_over_runs_1_through_3.png)  
+
+*Figure 3. The standard variation observed for Canvas fingerprinting obfuscation*   
+
 Here, we see that while the canvas fingerprint obfuscation techniques result in a variation in 
 the fingerprint away from the initial fingerprint calculated (when no Addons were implemented to 
 add interference), they produce a set of consistent fingerprints even when combined with other 
@@ -198,7 +206,7 @@ fingerprint obfuscation techniques.
 These are where the fingerprint id calculated to Variation 1 is observed for the canvas obfuscation
 technique applied either on its own, or in conjuction with one or more of the following:
 
-* [battery, clientRects, font, webgl, webRTC]
+* [battery, clientRects, font, webGL, webRTC]
 
 For the resultant fingerprint id, we receive Variation 2 if we apply canvas interference 
 stacked with navigator interference. These two interference/ obfuscation techniques can be 
@@ -211,14 +219,14 @@ spoofing and overwrites `navigator.plugins` to return an empty array [] as part 
 to make the values generic. The consistent value implemented by the navigator script is sufficient 
 for the FingerprintJS to be considered a consistent visitor (when in conjunction with the canvas obfuscation).
 
-* [battery, clientRects, font, webgl, webRTC]
+* [battery, clientRects, font, webGL, webRTC]
 
 For the resultant fingerprint id, we receive Variation 3 if we apply canvas interference 
 stacked with screen interference. These two interference/ obfuscation techniques can be 
 combined with the following obfuscation techniques to consistently receive the Variation 3 of a 
 fingerprint id.
 
-* [battery, clientRects, font, webgl, webRTC]
+* [battery, clientRects, font, webGL, webRTC]
 
 The screen interference technique employeed uses a crowd blending approach to force a hardcoded and highly 
 common configuration (1920x1080 resolution, 24-bit color depth). This is so your browser profile 
@@ -231,7 +239,7 @@ stacked with both navigator and screen interference. These three interference/ o
 techniques can be combined with the following obfuscation techniques to consistently receive the 
 Variation 4 of a fingerprint id.
 
-* [battery, clientRects, font, webgl, webRTC]
+* [battery, clientRects, font, webGL, webRTC]
 
 The exception to these rules applies to canvas fingerprinting obfuscation when combined with audio 
 fingerprinting interference where the technique implemented for the audio fingerprinting 
@@ -251,7 +259,7 @@ With regards to the following obfuscation techniques (presented below) that did 
 outcome of the canvas fingerprinting obfuscation technique either on its own or combined/ stacked 
 with navigator or screen fingerprint obfuscation techniques.
 
-* [battery, clientRects, font, webgl, webRTC]
+* [battery, clientRects, font, webGL, webRTC]
 
 Each of these techniques produce a reliable randomness for the fingerprint id (as calculated by the
 FingerprintJS opensource software), where repeated runs of each produce a different fingerprint id 
@@ -269,3 +277,344 @@ of this manuscript, or the preparation of supporting materials.
 
 I wish to express my gratitude to Infoserv Systems for their ongoing encouragement.   
 I would also like to acknowledge the previous work in this domain by Fingerprint Defender [@digitalfracture:2026], which I used as a basis for much of my own. 
+
+# Appendix: A Collection of the Results Observed Over Three Runs
+
+The following demonstrates three runs where we cycled through combinations of the techniques defined in the *Software Design* section of the paper.   
+
+## Run 1
+<img src="images/Run_1/run_1_base.png" width="500" alt="The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.\label{fig:fingerprint_base_obfuscation_results}">   
+
+*Figure 4. The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.*
+
+<img src="images/Run_1/run_1_audio_times_2.png" width="500" alt="The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_audio_obfuscation_results}">   
+
+*Figure 5. The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_battery_times_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 6. The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_canvas_times_2.png" width="500" alt="The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 7. The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_clientrects_times_2.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_clientrects_obfuscation_results}">   
+
+*Figure 8. The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_font_times_2.png" width="500" alt="The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_font_obfuscation_results}">   
+
+*Figure 9. The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_navigator_times_2.png" width="500" alt="The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_navigator_obfuscation_results}">   
+
+*Figure 10. The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_screen_times_2.png" width="500" alt="The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_screen_obfuscation_results}">   
+
+*Figure 11. The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_webgl_times_2.png" width="500" alt="The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_webgl_obfuscation_results}">   
+
+*Figure 12. The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_1/run_1_audio_times_3.png" width="500" alt="The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_2}">   
+
+*Figure 13. The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_battery_times_3.png" width="500" alt="The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_2}">   
+
+*Figure 14. The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_canvas_times_3.png" width="500" alt="The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_2}">   
+
+*Figure 15. The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_clientrects_times_3.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_2}">   
+
+*Figure 16. The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_font_times_3.png" width="500" alt="The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_2}">   
+
+*Figure 17. The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_navigator_times_3.png" width="500" alt="The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_2}">   
+
+*Figure 18. The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_screen_times_3.png" width="500" alt="The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_screen_obfuscation_results_with_2}">   
+
+*Figure 19. The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_audio_times_4.png" width="500" alt="The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_3}">   
+
+*Figure 20. The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_battery_times_4_part_1.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+<img src="images/Run_1/run_1_battery_times_4_part_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+*Figure 21. The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_canvas_times_4.png" width="500" alt="The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_3}">   
+
+*Figure 22. The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_clientrects_times_4.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_3}">   
+
+*Figure 23. The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_font_times_4.png" width="500" alt="The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_3}">   
+
+*Figure 24. The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_navigator_times_4.png" width="500" alt="The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_3}">   
+
+*Figure 25. The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_audio_times_5.png" width="500" alt="The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_4}">   
+
+*Figure 26. The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_battery_times_5.png" width="500" alt="The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_4}">   
+
+*Figure 27. The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_canvas_times_5.png" width="500" alt="The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ canvas_obfuscation_results_with_4}">   
+
+*Figure 28. The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_clientrects_times_5.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 29. The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_1/run_1_font_times_5.png" width="500" alt="The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 30. The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+
+
+## Run 2
+<img src="images/Run_2/run_2_base.png" width="500" alt="The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.\label{fig:fingerprint_base_obfuscation_results}">   
+
+*Figure 31. The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.*
+
+<img src="images/Run_2/run_2_audio_times_2.png" width="500" alt="The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_audio_obfuscation_results}">   
+
+*Figure 32. The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_battery_times_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 33. The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_canvas_times_2.png" width="500" alt="The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 34. The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_clientrects_times_2.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_clientrects_obfuscation_results}">   
+
+*Figure 35. The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_font_times_2.png" width="500" alt="The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_font_obfuscation_results}">   
+
+*Figure 36. The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_navigator_times_2.png" width="500" alt="The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_navigator_obfuscation_results}">   
+
+*Figure 37. The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_screen_times_2.png" width="500" alt="The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_screen_obfuscation_results}">   
+
+*Figure 38. The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_webgl_times_2.png" width="500" alt="The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_webgl_obfuscation_results}">   
+
+*Figure 39. The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_2/run_2_audio_times_3.png" width="500" alt="The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_2}">   
+
+*Figure 40. The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_battery_times_3.png" width="500" alt="The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_2}">   
+
+*Figure 41. The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_canvas_times_3.png" width="500" alt="The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_2}">   
+
+*Figure 42. The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_clientrects_times_3.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_2}">   
+
+*Figure 43. The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_font_times_3.png" width="500" alt="The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_2}">   
+
+*Figure 44. The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_navigator_times_3.png" width="500" alt="The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_2}">   
+
+*Figure 45. The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_screen_times_3.png" width="500" alt="The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_screen_obfuscation_results_with_2}">   
+
+*Figure 46. The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_audio_times_4.png" width="500" alt="The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_3}">   
+
+*Figure 47. The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_battery_times_4_part_1.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+<img src="images/Run_2/run_2_battery_times_4_part_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+*Figure 48. The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_canvas_times_4.png" width="500" alt="The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_3}">   
+
+*Figure 49. The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_clientrects_times_4.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_3}">   
+
+*Figure 50. The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_font_times_4.png" width="500" alt="The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_3}">   
+
+*Figure 51. The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_navigator_times_4.png" width="500" alt="The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_3}">   
+
+*Figure 52. The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_audio_times_5.png" width="500" alt="The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_4}">   
+
+*Figure 53. The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_battery_times_5.png" width="500" alt="The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_4}">   
+
+*Figure 54. The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_canvas_times_5.png" width="500" alt="The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ canvas_obfuscation_results_with_4}">   
+
+*Figure 55. The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_clientrects_times_5.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 56. The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_2/run_2_font_times_5.png" width="500" alt="The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 57. The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+
+
+## Run 3
+<img src="images/Run_3/run_3_base.png" width="500" alt="The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.\label{fig:fingerprint_base_obfuscation_results}">   
+
+*Figure 58. The base results for no fingerprint obfuscation, and audio, battery, canvas, clientRects, font, screen, navigator, webGL, webRTC obfuscations when not in combination.*
+
+<img src="images/Run_3/run_3_audio_times_2.png" width="500" alt="The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_audio_obfuscation_results}">   
+
+*Figure 59. The results for audio fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_battery_times_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 60. The results for battery fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_canvas_times_2.png" width="500" alt="The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_battery_obfuscation_results}">   
+
+*Figure 61. The results for canvas fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_clientrects_times_2.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_clientrects_obfuscation_results}">   
+
+*Figure 62. The results for clientRects fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_font_times_2.png" width="500" alt="The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_font_obfuscation_results}">   
+
+*Figure 63. The results for font fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_navigator_times_2.png" width="500" alt="The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_navigator_obfuscation_results}">   
+
+*Figure 64. The results for navigator fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_screen_times_2.png" width="500" alt="The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_screen_obfuscation_results}">   
+
+*Figure 65. The results for screen fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_webgl_times_2.png" width="500" alt="The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.\label{fig:fingerprint_webgl_obfuscation_results}">   
+
+*Figure 66. The results for webGL fingerprint obfuscation combined with one other fingerprint obfuscation technique.*
+
+<img src="images/Run_3/run_3_audio_times_3.png" width="500" alt="The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_2}">   
+
+*Figure 67. The results for audio fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_battery_times_3.png" width="500" alt="The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_2}">   
+
+*Figure 68. The results for battery fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_canvas_times_3.png" width="500" alt="The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_2}">   
+
+*Figure 69. The results for canvas fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_clientrects_times_3.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_2}">   
+
+*Figure 70. The results for clientRects fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_font_times_3.png" width="500" alt="The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_2}">   
+
+*Figure 71. The results for font fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_navigator_times_3.png" width="500" alt="The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_2}">   
+
+*Figure 72. The results for navigator fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_screen_times_3.png" width="500" alt="The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.\label{fig:fingerprint_screen_obfuscation_results_with_2}">   
+
+*Figure 73. The results for screen fingerprint obfuscation combined with two other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_audio_times_4.png" width="500" alt="The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_3}">   
+
+*Figure 74. The results for audio fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_battery_times_4_part_1.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+<img src="images/Run_3/run_3_battery_times_4_part_2.png" width="500" alt="The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_3}">  
+
+*Figure 75. The results for battery fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_canvas_times_4.png" width="500" alt="The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_canvas_obfuscation_results_with_3}">   
+
+*Figure 76. The results for canvas fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_clientrects_times_4.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_clientrects_obfuscation_results_with_3}">   
+
+*Figure 77. The results for clientRects fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_font_times_4.png" width="500" alt="The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_font_obfuscation_results_with_3}">   
+
+*Figure 78. The results for font fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_navigator_times_4.png" width="500" alt="The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.\label{fig:fingerprint_navigator_obfuscation_results_with_3}">   
+
+*Figure 79. The results for navigator fingerprint obfuscation combined with three other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_audio_times_5.png" width="500" alt="The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_audio_obfuscation_results_with_4}">   
+
+*Figure 80. The results for audio fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_battery_times_5.png" width="500" alt="The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_battery_obfuscation_results_with_4}">   
+
+*Figure 81. The results for battery fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_canvas_times_5.png" width="500" alt="The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ canvas_obfuscation_results_with_4}">   
+
+*Figure 82. The results for canvas fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_clientrects_times_5.png" width="500" alt="The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 83. The results for clientRects fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
+
+<img src="images/Run_3/run_3_font_times_5.png" width="500" alt="The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.\label{fig:fingerprint_ clientrects_obfuscation_results_with_4}">   
+
+*Figure 84. The results for font fingerprint obfuscation combined with four other fingerprint obfuscation techniques.*
