@@ -1,4 +1,4 @@
-# ShiftingBrowserFingerprints
+# FingerprintObfuscation: A Package for Shifting Browser Fingerprints
 
 <p align="center">
   <img src="./docs/images/fingerprint_logo.png" alt="alt text">
